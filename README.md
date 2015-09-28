@@ -6,7 +6,7 @@ Note that you also need a to create cafesnob.conf located in: /etc/apache2/sites
 
 and containing:
 
-<VirtualHost *:80>
+\<VirtualHost *:80\>
 
 		ServerName www.cafesnob.info
 		ServerAdmin admin@cafesnob.info
@@ -15,9 +15,7 @@ and containing:
 			Order allow,deny
 			Allow from all
 		</Directory>
-		
 		Alias /static /var/www/Flaskapp/app/static
-		
 		<Directory /var/www/Flaskapp/app/static/>
 			Order allow,deny
 			Allow from all
@@ -25,4 +23,7 @@ and containing:
 		ErrorLog ${APACHE_LOG_DIR}/error.log
 		LogLevel warn
 		CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+\</VirtualHost>
+
+
+Make sure to start and end the file with those virtual host bits that aren't sitting in the code block properly
