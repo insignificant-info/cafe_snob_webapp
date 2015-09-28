@@ -7,6 +7,7 @@ Note that you also need a to create cafesnob.conf located in: /etc/apache2/sites
 and containing:
 
 <VirtualHost *:80>
+
 		ServerName www.cafesnob.info
 		ServerAdmin admin@cafesnob.info
 		WSGIScriptAlias / /var/www/Flaskapp/cafesnob.wsgi
@@ -14,7 +15,9 @@ and containing:
 			Order allow,deny
 			Allow from all
 		</Directory>
+		
 		Alias /static /var/www/Flaskapp/app/static
+		
 		<Directory /var/www/Flaskapp/app/static/>
 			Order allow,deny
 			Allow from all
