@@ -14,6 +14,10 @@ import urllib2
 def index():
     return render_template("index.html")
 
+@app.route('/demo')
+def demo():
+    return render_template("demo.html")
+
 @app.route('/output')
 def cafes_output():
   url = request.args.get('URL')
