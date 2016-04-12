@@ -24,12 +24,14 @@ def cafes_output():
   url = url.encode('utf_8',errors='ignore')
   # url = urllib2.quote(url,':/')
 
+  #Yelp used simple http when this app was built, now they use https. Include a simple work around here for new addresses
+  if (url[:5].lower() == 'https'):
+    url = 'http' + url[5:]
+
   db = mdb.connect(user="paul", passwd="aaa", host="localhost", db="coffee_shops", charset='utf8')
 
-  # db = mdb.connect(user="root", host="localhost", db="coffee_shops", charset='utf8')
   with db:
     cur = db.cursor()
-    #just select the city from the world_innodb that the user inputs
     cur.execute("SELECT biz_name, first_match, first_match_score, second_match, second_match_score, third_match,third_match_score, fourth_match, fourth_match_score, first_match_url, second_match_url, third_match_url, fourth_match_url, url FROM coffee_table WHERE url ='%s';" % url)
     query_results = cur.fetchall()
 
